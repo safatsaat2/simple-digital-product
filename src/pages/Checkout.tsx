@@ -25,10 +25,15 @@ const Checkout = (props: Props) =>{
     return(
         <div className="flex flex-col container mt-8">
                 <h1 className="text-center mb-5">Checkout</h1>
+                <div className="grid grid-cols-3 items-center gap-x-20">
+                <div className="col-span-2">
                 <ProductCard {...PRODUCT} />
+                </div>
                 <Elements stripe={stripePromise} options={options}>
                     <CheckoutForm/>
                 </Elements>
+                </div>
+                
 
         </div>
     )

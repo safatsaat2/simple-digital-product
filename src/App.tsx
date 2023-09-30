@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
+import Success from "./components/Success";
 import Checkout from "./pages/Checkout";
 import Product from "./pages/Product";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
@@ -32,7 +33,7 @@ function App() {
           }
         />
         <Route path="checkout" element={<Checkout/>}/>
-        <Route path="Success" element={<div>Success</div>}/>
+        <Route path="Success" element={<Success/>}/>
       </Route>
     </Routes>
   );

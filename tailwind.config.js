@@ -11,7 +11,11 @@ export default {
         DEFAULT: theme("colors.gray.900", "currentcolor")
       }
     ),
-    extend: {},
+    extend: {
+      boxShadow:{
+        custom: "0px 1px 1px rgba(0,0,0,0.03), 0px 3px 6px rgba(0,0,0,0.02)"
+      }
+    },
     container: {
       center: true,
       screens: {

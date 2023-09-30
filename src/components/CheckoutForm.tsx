@@ -6,6 +6,7 @@ import {
     useStripe,
     useElements,
   } from '@stripe/react-stripe-js';
+  import { PRODUCT } from '../productInfo';
 
 
 export const CheckoutForm = () => {
@@ -13,6 +14,8 @@ export const CheckoutForm = () => {
     const elements = useElements();
   
     const [errorMessage, setErrorMessage] = useState<string | undefined>("");
+
+    const [email, setEmail] = useState<string>("")
   
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -32,6 +35,17 @@ export const CheckoutForm = () => {
       // Create the PaymentIntent and obtain clientSecret from your server endpoint
       const res = await fetch('https://d78c5nr8x4.us.aircode.run/payment', {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify({
+            currency: 'USD',
+            email: email,
+            amount: PRODUCT.price * 100,
+            paymentMethodType: "card"
+
+        })
       });
   
       const {client_secret: clientSecret} = await res.json();
@@ -58,7 +72,13 @@ export const CheckoutForm = () => {
     };
   
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='px-4'>
+        <div className='mb-3'>
+<label htmlFor="email-input">Email</label>
+<div>
+    <input value={email} onChange={(e => setEmail(e.target.value))} type="email" name="" id="email-input" placeholder='Example@gmail.com' className='p-3 w-full bg-white rounded-md border border-[#e6e6e6] box-shadow-custom' />
+</div>
+        </div>
         <PaymentElement />
         <button type="submit" disabled={!stripe || !elements}>
           Pay
