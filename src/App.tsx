@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Success from "./components/Success";
 import Checkout from "./pages/Checkout";
 import Product from "./pages/Product";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Routes, Route, Outlet, } from "react-router-dom";
 
 const Layout = () => {
   return (

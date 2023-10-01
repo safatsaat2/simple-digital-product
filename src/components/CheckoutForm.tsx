@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import {
     PaymentElement,
-    Elements,
+    
     useStripe,
     useElements,
   } from '@stripe/react-stripe-js';
@@ -80,7 +80,7 @@ export const CheckoutForm = () => {
 </div>
         </div>
         <PaymentElement />
-        <button type="submit" disabled={!stripe || !elements}>
+        <button type="submit" className="bg-indigo-500 text-white hover:bg-indigo-600 rounded shadow-[0.25rem_0.25rem_0px_0px_rgba(0,0,0,1)] focus:outline-none border-gray-900 hover:border-gray-900 border-2 mt-4" disabled={!stripe || !elements}>
           Pay
         </button>
         {/* Show error message to your customers */}
