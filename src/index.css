@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.shape{
+ background: radial-gradient(50% 50% at 50% 50%, rgba(73, 79, 192, 0.356) 0%, rgba(217, 217, 217, 0.00) 100%);
+
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
